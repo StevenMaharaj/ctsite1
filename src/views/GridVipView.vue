@@ -127,19 +127,8 @@
 import HeroSection from '../components/HeroSection.vue'
 import FeatureCard from '../components/FeatureCard.vue'
 
-interface Props {
-  webinarDate?: string
-  webinarDateFormatted?: string
-  webinarTimeZone?: string
-}
+// const webinarDate = '2025-09-12T10:20:00+10:00'
 
-const props = withDefaults(defineProps<Props>(), {
-  webinarDate: '2025-09-12T10:20:00+10:00',
-  webinarDateFormatted: 'September 12, 2025',
-  webinarTimeZone: 'Australian Eastern Standard Time'
-})
-
-const webinarDate = '2025-09-12T10:20:00+10:00'
 const webinarDateFormatted = 'September 12, 2025'
 const webinarTimeZone = 'Australian Eastern Standard Time'
 // const stripe_vip_payment_link = "https://buy.stripe.com/test_cNi3co6iv68C8Yi6FH5ZC00"

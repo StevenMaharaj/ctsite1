@@ -99,26 +99,17 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import HeroSection from '../components/HeroSection.vue'
 import FeatureCard from '../components/FeatureCard.vue'
 import EmailSignup from '../components/EmailSignup.vue'
 import CountdownTimer from '../components/CountdownTimer.vue'
-const liteSkoolLink = "https://www.skool.com/coder-trader-lite-4652/about?ref=8fb2c06825bb4b70be660556279e3a9a"
-const email = ref('')
+// const liteSkoolLink = "https://www.skool.com/coder-trader-lite-4652/about?ref=8fb2c06825bb4b70be660556279e3a9a"
 
 // Webinar configuration
 const webinarDate = '2025-09-12T10:20:00+10:00'
 const webinarDateFormatted = 'September 12, 2025'
 const webinarTimeZone = 'Australian Eastern Standard Time'
 
-const handleSignup = () => {
-  if (email.value) {
-    alert(`Thanks for registering! We'll send webinar details to ${email.value}`)
-    // Here you would typically send the email to your backend
-    email.value = ''
-  }
-}
 </script>
 
 <style scoped>
