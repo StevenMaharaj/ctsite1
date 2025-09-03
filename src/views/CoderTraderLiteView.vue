@@ -17,7 +17,7 @@
         </router-link>
       </template>
       <template #social-proof>
-        <p>💡 Join 100+ beginners already learning algorithmic trading</p>
+        <p>💡 Perfect for beginners ready to learn algorithmic trading</p>
       </template>
     </HeroSection>
 
@@ -50,9 +50,9 @@
             
             <PricingCard 
               title="Annual"
-              price="$139"
+              price="$137"
               period="/year"
-              savings="Save $89!"
+              savings="Save 40%!"
               badge="BEST VALUE"
               :featured="true"
             >

@@ -10,7 +10,7 @@
       </template>
       <template #buttons>
         <a :href="skoolLink" class="btn btn-primary" target="_blank">
-          Join Coder Trader Now - $697/month
+          Join Coder Trader
         </a>
         <button @click="scrollToFeatures" class="btn btn-secondary">
           See What's Inside
@@ -50,9 +50,9 @@
             
             <PricingCard 
               title="Annual"
-              price="$5,997"
+              price="$1,997"
               period="/year"
-              savings="Save $1,367!"
+              savings="Save 76%!"
               badge="BEST VALUE"
               :featured="true"
             >

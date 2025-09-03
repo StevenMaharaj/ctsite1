@@ -9,45 +9,14 @@
         Join our exclusive live webinar and learn the automated grid trading strategy that makes money whether the market goes up, down, or sideways.
       </template>
       <template #buttons>
-        <div class="countdown-container">
-          <h3>Webinar Starts In:</h3>
-          <div class="countdown">
-            <div class="countdown-item">
-              <span class="countdown-number">{{ timeLeft.days }}</span>
-              <span class="countdown-label">Days</span>
-            </div>
-            <div class="countdown-item">
-              <span class="countdown-number">{{ timeLeft.hours }}</span>
-              <span class="countdown-label">Hours</span>
-            </div>
-            <div class="countdown-item">
-              <span class="countdown-number">{{ timeLeft.minutes }}</span>
-              <span class="countdown-label">Minutes</span>
-            </div>
-            <div class="countdown-item">
-              <span class="countdown-number">{{ timeLeft.seconds }}</span>
-              <span class="countdown-label">Seconds</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="signup-form">
-          <form @submit.prevent="handleSignup">
-            <input 
-              v-model="email" 
-              type="email" 
-              placeholder="Enter your email address"
-              required
-              class="email-input"
-            />
-            <button type="submit" class="btn btn-primary btn-large">
-              Reserve My Seat - FREE
-            </button>
-          </form>
-        </div>
+        <CountdownTimer 
+          :target-date="webinarDate"
+          title="Webinar Starts In:"
+        />
+        <EmailSignup />
       </template>
       <template #social-proof>
-        <p>🎯 September 29, 2025 - Australian Eastern Standard Time</p>
+        <p>🎯 {{ webinarDateFormatted }} - {{ webinarTimeZone }}</p>
       </template>
     </HeroSection>
 
@@ -105,7 +74,7 @@
               </div>
               <div class="bonus-item">
                 <span class="bonus-emoji">💎</span>
-                <span>Mystery Crypto Gift (More than Ethereum, Less than Bitcoin)</span>
+                <span>Secret Crypto Gift (More than Ethereum, Less than Bitcoin)</span>
               </div>
             </div>
           </div>
@@ -120,23 +89,9 @@
         <h2>Don't Miss This Opportunity</h2>
         <p>Grid trading is one of the most reliable automated strategies. Learn it from an expert, get free tools, and transform your trading forever.</p>
         
-        <div class="signup-form">
-          <form @submit.prevent="handleSignup">
-            <input 
-              v-model="email" 
-              type="email" 
-              placeholder="Enter your email address"
-              required
-              class="email-input"
-            />
-            <button type="submit" class="btn btn-primary btn-large">
-              Secure My Free Seat Now
-            </button>
-          </form>
-        </div>
-        
+        <EmailSignup />
         <div class="urgency">
-          <p>⏰ Webinar starts in {{ timeLeft.days }} days, {{ timeLeft.hours }} hours</p>
+          <p>⏰ Limited seats available - Register now!</p>
         </div>
       </div>
     </section>
@@ -144,41 +99,18 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref } from 'vue'
 import HeroSection from '../components/HeroSection.vue'
 import FeatureCard from '../components/FeatureCard.vue'
-
+import EmailSignup from '../components/EmailSignup.vue'
+import CountdownTimer from '../components/CountdownTimer.vue'
 const liteSkoolLink = "https://www.skool.com/coder-trader-lite-4652/about?ref=8fb2c06825bb4b70be660556279e3a9a"
 const email = ref('')
 
-// Countdown timer
-const timeLeft = ref({
-  days: 0,
-  hours: 0,
-  minutes: 0,
-  seconds: 0
-})
-
-let countdownInterval: number
-
-const calculateTimeLeft = () => {
-  // September 29, 2025 AEST (UTC+10)
-  const targetDate = new Date('2025-09-29T10:00:00+10:00') // 10 AM AEST
-  const now = new Date()
-  const difference = targetDate.getTime() - now.getTime()
-
-  if (difference > 0) {
-    timeLeft.value = {
-      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-      minutes: Math.floor((difference / 1000 / 60) % 60),
-      seconds: Math.floor((difference / 1000) % 60)
-    }
-  } else {
-    // Webinar has started or ended
-    timeLeft.value = { days: 0, hours: 0, minutes: 0, seconds: 0 }
-  }
-}
+// Webinar configuration
+const webinarDate = '2025-09-12T10:20:00+10:00'
+const webinarDateFormatted = 'September 12, 2025'
+const webinarTimeZone = 'Australian Eastern Standard Time'
 
 const handleSignup = () => {
   if (email.value) {
@@ -187,17 +119,6 @@ const handleSignup = () => {
     email.value = ''
   }
 }
-
-onMounted(() => {
-  calculateTimeLeft()
-  countdownInterval = setInterval(calculateTimeLeft, 1000)
-})
-
-onUnmounted(() => {
-  if (countdownInterval) {
-    clearInterval(countdownInterval)
-  }
-})
 </script>
 
 <style scoped>
@@ -212,44 +133,7 @@ onUnmounted(() => {
   text-decoration: underline;
 }
 
-/* Countdown Styles */
-.countdown-container {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.countdown-container h3 {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-  color: white;
-}
-
-.countdown {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-bottom: 30px;
-}
-
-.countdown-item {
-  background: rgba(255, 255, 255, 0.2);
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  min-width: 80px;
-}
-
-.countdown-number {
-  display: block;
-  font-size: 2rem;
-  font-weight: bold;
-  color: white;
-}
-
-.countdown-label {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.8);
-}
+/* CountdownTimer component handles its own styles */
 
 /* Email Signup Styles */
 .signup-form {
@@ -365,23 +249,8 @@ onUnmounted(() => {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .countdown {
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  
-  .countdown-item {
-    min-width: 70px;
-    padding: 15px;
-  }
-  
-  .countdown-number {
-    font-size: 1.5rem;
-  }
-  
   .features-grid {
     grid-template-columns: 1fr;
   }
-  
 }
 </style>
