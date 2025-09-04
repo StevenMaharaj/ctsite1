@@ -6,14 +6,15 @@
         Master <span class="highlight">Grid Trading</span> - The Strategy That Profits in Any Market
       </template>
       <template #subtitle>
-        Join our exclusive live webinar and learn the automated grid trading strategy that makes money whether the market goes up, down, or sideways.
+        Join our exclusive live webinar and learn the automated grid trading strategy that makes money whether the
+        market goes up, down, or sideways.
       </template>
       <template #buttons>
-        <CountdownTimer 
-          :target-date="webinarDate"
-          title="Webinar Starts In:"
-        />
-        <EmailSignup />
+        <VipButton button-text="Register Now" />
+        <CountdownTimer :target-date="webinarDate" title="Webinar Starts In:" />
+        <!-- <WebinarActions :webinar-date="webinarDate" webinar-title="Grid Trading Webinar"
+          :webinar-link="'https://www.youtube.com/watch?v=dIfknPar8bw'"
+          webinar-description="Master Grid Trading - The Strategy That Profits in Any Market" /> -->
       </template>
       <template #social-proof>
         <p>🎯 {{ webinarDateFormatted }} - {{ webinarTimeZone }}</p>
@@ -25,36 +26,18 @@
       <div class="container">
         <h2 class="section-title">What You'll Master in This Live Webinar</h2>
         <div class="features-grid">
-          <FeatureCard 
-            icon="📊"
-            title="Grid Trading Fundamentals"
-            description="Understand the core mechanics of grid trading and how it captures profits from market volatility."
-          />
-          <FeatureCard 
-            icon="💰"
-            title="When Grid Trading Makes Money"
-            description="Learn the exact market conditions where grid trading generates consistent profits and why it's so effective."
-          />
-          <FeatureCard 
-            icon="⚠️"
-            title="Risk Management Strategies"
-            description="Discover how to protect your capital and minimize losses with proper risk management techniques."
-          />
-          <FeatureCard 
-            icon="📉"
-            title="Handling Market Downturns"
-            description="Master the art of managing grid strategies when markets move against you and how to recover."
-          />
-          <FeatureCard 
-            icon="🤖"
-            title="Automation Techniques"
-            description="See live demonstrations of automated grid trading bots and how to set them up yourself."
-          />
-          <FeatureCard 
-            icon="📈"
-            title="Advanced Grid Strategies"
-            description="Explore sophisticated grid variations for different market conditions and asset classes."
-          />
+          <FeatureCard icon="📊" title="Grid Trading Fundamentals"
+            description="Understand the core mechanics of grid trading and how it captures profits from market volatility." />
+          <FeatureCard icon="💰" title="When Grid Trading Makes Money"
+            description="Learn the exact market conditions where grid trading generates consistent profits and why it's so effective." />
+          <FeatureCard icon="⚠️" title="Risk Management Strategies"
+            description="Discover how to protect your capital and minimize losses with proper risk management techniques." />
+          <FeatureCard icon="📉" title="Handling Market Downturns"
+            description="Master the art of managing grid strategies when markets move against you and how to recover." />
+          <FeatureCard icon="🤖" title="Automation Techniques"
+            description="See live demonstrations of automated grid trading bots and how to set them up yourself." />
+          <FeatureCard icon="📈" title="Advanced Grid Strategies"
+            description="Explore sophisticated grid variations for different market conditions and asset classes." />
         </div>
       </div>
     </section>
@@ -77,6 +60,7 @@
                 <span>Secret Crypto Gift (More than Ethereum, Less than Bitcoin)</span>
               </div>
             </div>
+            <VipButton button-text="Register Now" />
           </div>
         </div>
       </div>
@@ -87,12 +71,14 @@
     <section class="final-cta">
       <div class="container">
         <h2>Don't Miss This Opportunity</h2>
-        <p>Grid trading is one of the most reliable automated strategies. Learn it from an expert, get free tools, and transform your trading forever.</p>
-        
-        <EmailSignup />
-        <div class="urgency">
-          <p>⏰ Limited seats available - Register now!</p>
-        </div>
+        <p>Grid trading is one of the most reliable automated strategies. Learn it from an expert, get free tools, and
+          transform your trading forever.</p>
+
+
+            <VipButton button-text="Register Now" />
+        <!-- <WebinarActions :webinar-date="webinarDate" webinar-title="Grid Trading Webinar"
+          :webinar-link="'https://www.youtu be.com/watch?v=dIfknPar8bw'"
+          webinar-description="Master Grid Trading - The Strategy That Profits in Any Market" /> -->
       </div>
     </section>
   </div>
@@ -101,8 +87,8 @@
 <script setup lang="ts">
 import HeroSection from '../components/HeroSection.vue'
 import FeatureCard from '../components/FeatureCard.vue'
-import EmailSignup from '../components/EmailSignup.vue'
 import CountdownTimer from '../components/CountdownTimer.vue'
+import VipButton from '../components/VipButton.vue'
 // const liteSkoolLink = "https://www.skool.com/coder-trader-lite-4652/about?ref=8fb2c06825bb4b70be660556279e3a9a"
 
 // Webinar configuration

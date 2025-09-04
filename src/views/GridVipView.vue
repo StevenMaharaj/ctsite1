@@ -1,20 +1,23 @@
 <template>
   <div class="grid-vip-page">
-    <!-- Hero Section - Congratulations -->
+    <!-- Hero Section - Video -->
     <HeroSection>
       <template #title>
-        🎉 <span class="highlight">Congratulations!</span> Your Webinar Seat is Secured
+        Get <span class="highlight">VIP Access</span> to the Grid Trading Webinar
       </template>
       <template #subtitle>
-        You're officially registered for the Grid Trading Webinar on {{ webinarDateFormatted }}. But before you go, I have an exclusive VIP upgrade that will transform your webinar experience.
+        Watch this exclusive preview and discover why VIP members get the best results from our grid trading strategies.
       </template>
       <template #buttons>
-        <a href="#vip-upgrade" class="btn btn-primary btn-large">
-          See VIP Upgrade
-        </a>
+        <div class="video-container">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/lzqVmhow4IA?si=nT4xA8WQ46pMn_K-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <button @click="handleVipUpgrade" class="btn btn-primary btn-large vip-join-btn">
+          🏆 Join Skool - Get VIP Seat for $19
+        </button>
       </template>
       <template #social-proof>
-        <p>✅ Your webinar seat is confirmed for {{ webinarDateFormatted }} at 8 PM {{ webinarTimeZone.replace('Australian Eastern Standard Time', 'AEST') }}</p>
+        <p>🎯 Webinar date: {{ webinarDateFormatted }}</p>
       </template>
     </HeroSection>
 
@@ -24,8 +27,8 @@
         <div class="vip-header">
           <h2 class="section-title">Upgrade to VIP Access - Limited Time Only</h2>
           <div class="vip-price">
-            <span class="price-tag">Only $9</span>
-            <span class="price-note">One-time payment</span>
+            <span class="price-tag">Only $19</span>
+            <span class="price-note">Monthly Skool membership</span>
           </div>
         </div>
 
@@ -57,7 +60,7 @@
             
             <div class="upgrade-button-container">
               <button @click="handleVipUpgrade" class="btn btn-primary btn-large vip-btn">
-                🚀 Upgrade to VIP for Just $9
+                🏆 Join Skool - Get VIP Seat for $19
               </button>
             </div>
 
@@ -69,7 +72,7 @@
     <!-- What You're Getting Section -->
     <section class="value-section">
       <div class="container">
-        <h2 class="section-title">Here's What $9 Gets You (Worth Over $297)</h2>
+        <h2 class="section-title">Here's What $19 Gets You (Worth Over $297)</h2>
         <div class="value-breakdown">
           <div class="value-item">
             <div class="value-icon">🎯</div>
@@ -98,7 +101,7 @@
         </div>
         <div class="total-value">
           <p><strong>Total Value: $361</strong></p>
-          <p class="your-price">Your VIP Price: <span class="highlight">Just $9</span></p>
+          <p class="your-price">Your VIP Price: <span class="highlight">Just $19</span></p>
         </div>
       </div>
     </section>
@@ -111,12 +114,20 @@
         
         <div class="final-cta-buttons">
           <button @click="handleVipUpgrade" class="btn btn-primary btn-large vip-btn">
-            Yes, Upgrade Me to VIP for $9
+            🏆 Join Skool - Get VIP Seat for $19
           </button>
         </div>
         
-        <div class="urgency-note">
-          <p>⚠️ This offer expires when you leave this page</p>
+        
+        <div class="regular-seat-option">
+          <h3>No Thanks, I Want a Regular Seat</h3>
+          <p>Get basic webinar access with calendar reminder and join link.</p>
+          <WebinarActions 
+            :webinar-date="webinarDate"
+            webinar-title="Grid Trading Webinar"
+            :webinar-link="'https://www.youtube.com/watch?v=dIfknPar8bw'"
+            webinar-description="Master Grid Trading - The Strategy That Profits in Any Market"
+          />
         </div>
       </div>
     </section>
@@ -126,18 +137,16 @@
 <script setup lang="ts">
 import HeroSection from '../components/HeroSection.vue'
 import FeatureCard from '../components/FeatureCard.vue'
+import WebinarActions from '../components/WebinarActions.vue'
 
-// const webinarDate = '2025-09-12T10:20:00+10:00'
+const webinarDate = '2025-09-12T10:20:00+10:00'
 
 const webinarDateFormatted = 'September 12, 2025'
-const webinarTimeZone = 'Australian Eastern Standard Time'
-// const stripe_vip_payment_link = "https://buy.stripe.com/test_cNi3co6iv68C8Yi6FH5ZC00"
-const stripe_vip_payment_link = "https://buy.stripe.com/cNi3co6iv68C8Yi6FH5ZC00"
+// const webinarTimeZone = 'Australian Eastern Standard Time'
 
 // VIP upgrade handler
 const handleVipUpgrade = () => {
-  // This would integrate with your payment processor
-  window.location.href = stripe_vip_payment_link  
+  window.location.href = "https://www.skool.com/coder-trader-lite-4652/about?ref=8fb2c06825bb4b70be660556279e3a9a"
 }
 </script>
 
