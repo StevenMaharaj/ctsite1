@@ -3,7 +3,7 @@
     <!-- Hero Section -->
     <HeroSection>
       <template #title>
-        Are You <span class="highlight">Tired of Watching</span> Other Traders Make Millions While You're Left Behind?
+      Stop Feeling Dumb. Start Feeling Dangerous
       </template>
       <template #subtitle>
         Stop losing money on "get rich quick" schemes. Join the only community that teaches you to code your way to consistent trading profits with real systems, live mentorship, and funded accounts.
