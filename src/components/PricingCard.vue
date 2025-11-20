@@ -4,7 +4,9 @@
     <h4>{{ title }}</h4>
     <div class="price">{{ price }}<span v-if="period">{{ period }}</span></div>
     <div v-if="savings" class="savings">{{ savings }}</div>
-    <slot name="button"></slot>
+    <ul v-if="benefits && benefits.length" class="benefits">
+      <li v-for="benefit in benefits" :key="benefit">{{ benefit }}</li>
+    </ul>
   </div>
 </template>
 
@@ -16,6 +18,7 @@ defineProps<{
   savings?: string;
   badge?: string;
   featured?: boolean;
+  benefits?: string[];
 }>()
 </script>
 
@@ -70,6 +73,31 @@ defineProps<{
   color: #28a745;
   font-weight: 600;
   margin-bottom: 20px;
+}
+
+.benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+  text-align: left;
+}
+
+.benefits li {
+  padding: 8px 0;
+  color: #555;
+  font-size: 0.95rem;
+  border-bottom: 1px solid #eee;
+}
+
+.benefits li:last-child {
+  border-bottom: none;
+}
+
+.benefits li::before {
+  content: '✓';
+  color: #28a745;
+  font-weight: bold;
+  margin-right: 10px;
 }
 
 @media (max-width: 768px) {

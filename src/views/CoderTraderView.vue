@@ -3,10 +3,13 @@
     <!-- Hero Section -->
     <HeroSection>
       <template #title>
-      Stop Feeling Dumb. Start Feeling Dangerous
+        Stop Feeling Dumb. Start Feeling Dangerous
       </template>
       <template #subtitle>
-        Stop losing money on "get rich quick" schemes. Join the only community that teaches you to code your way to consistent trading profits with real systems, live mentorship, and funded accounts.
+        <VideoEmbed
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          title="Coder Trader Overview Video"
+        />
       </template>
       <template #buttons>
         <a :href="skoolLink" class="btn btn-primary" target="_blank">
@@ -17,75 +20,65 @@
         </button>
       </template>
       <template #social-proof>
-        <p>🚀 Transform your trading with proven algorithmic strategies</p>
+        <p>🚀 Transform your focus. Become world-class.</p>
       </template>
     </HeroSection>
 
     <!-- Features Section -->
     <section id="features" class="features">
       <div class="container">
-        <h2 class="section-title">Everything You Need to Trade Like a Pro Coder</h2>
+        <h2 class="section-title">What You'll Get</h2>
         <div class="features-grid">
-          <FeatureCard 
-            v-for="feature in features" 
-            :key="feature.title"
-            :icon="feature.icon"
-            :title="feature.title"
-            :description="feature.description"
-          />
+          <FeatureCard v-for="feature in features" :key="feature.title" :icon="feature.icon" :title="feature.title"
+            :description="feature.description" />
         </div>
-        
         <div class="cta-section">
-          <h3>Ready to Transform Your Trading?</h3>
+          <h3>Ready to Transform and Succeed?</h3>
           <div class="pricing-options">
-            <PricingCard 
-              title="Monthly"
-              price="$697"
-              period="/month"
-            >
+            <PricingCard title="Standard" price="$0" period="/month" :benefits="[
+              'Expert Coder Starter',
+              'Code Class Starter',
+              'Community Knowledge Base'
+            ]">
               <template #button>
                 <a :href="skoolLink" class="btn btn-primary" target="_blank">Start Monthly</a>
               </template>
             </PricingCard>
-            
-            <PricingCard 
-              title="Annual"
-              price="$1,997"
-              period="/year"
-              savings="Save 76%!"
-              badge="BEST VALUE"
-              :featured="true"
-            >
+            <PricingCard title="Premium" price="$97" period="/month" badge="BEST VALUE" :featured="true" :benefits="[
+              'Access to all Standard features',
+              'Weekly live Q&A sessions',
+              'Code Class Full Access',
+              'Premium Live Stream Archive',
+              'Mindset Course',
+              'Expert Coder Full Access'
+            ]">
               <template #button>
-                <a :href="skoolLink" class="btn btn-primary" target="_blank">Get Annual Deal</a>
+                <a :href="skoolLink" class="btn btn-primary" target="_blank">Start Monthly</a>
               </template>
             </PricingCard>
+
+            <PricingCard title="VIP" price="$1997" period="/month" :benefits="[
+              'All Premium features',
+              'Personal mentorship calls',
+              'Personalized Curriculum',
+              'Daily Accountability',
+            ]">
+            </PricingCard>
+          </div>
+          <div class="pricing-cta">
+            <a :href="skoolLink" class="btn btn-primary btn-large" target="_blank">Join Coder Trader Now</a>
           </div>
         </div>
       </div>
+      
     </section>
 
-    <!-- Alternative Option Section -->
-    <section class="alternative">
-      <div class="container">
-        <h2>Not Ready for the Full Program?</h2>
-        <p>Start with our lighter version and upgrade when you're ready.</p>
-        <div class="lite-option">
-          <h3>Coder Trader Lite</h3>
-          <div class="lite-pricing">
-            <span class="lite-price">$19/month</span> or <span class="lite-price">$139/year</span>
-          </div>
-          <p>Perfect for beginners who want to dip their toes into algorithmic trading.</p>
-          <router-link to="/lite" class="btn btn-outline">Learn More About Lite</router-link>
-        </div>
-      </div>
-    </section>
 
     <!-- Final CTA -->
     <section class="final-cta">
       <div class="container">
         <h2>Don't Let Another Day Pass Watching Others Succeed</h2>
-        <p>The market rewards those who take action. Join Coder Trader today and start your journey to consistent trading profits.</p>
+        <p>Take the leap and join a community of like-minded coders who are committed to success.</p>
         <a :href="skoolLink" class="btn btn-primary btn-large" target="_blank">
           Join Coder Trader Community Now
         </a>
@@ -98,45 +91,42 @@
 import HeroSection from '../components/HeroSection.vue'
 import FeatureCard from '../components/FeatureCard.vue'
 import PricingCard from '../components/PricingCard.vue'
+import VideoEmbed from '../components/VideoEmbed.vue'
 
-const skoolLink = "https://www.skool.com/codertrader/about?ref=8fb2c06825bb4b70be660556279e3a9a"
+const skoolLink = "https://www.skool.com/coder-trader/about"
 
 const features = [
   {
-    icon: "📈",
-    title: "Complete Trading Systems Course",
-    description: "Learn to build algorithmic trading systems from scratch. No more guessing - let data and code guide your trades."
-  },
-  {
-    icon: "🗄️",
-    title: "SQL & Grafana Mastery",
-    description: "Master data analysis and visualization. Turn raw market data into actionable insights with professional-grade tools."
-  },
-  {
-    icon: "🐍",
-    title: "Python for Trading Course",
-    description: "Code your way to consistent profits. Learn the exact Python techniques used by quantitative hedge funds."
+    icon: "🧠",
+    title: "Mindset Course",
+    description: "Master the coder's mindset. No  technical challenge is too big when you think like a pro."
   },
   {
     icon: "🎥",
     title: "Premium Live Stream Archive",
-    description: "Access hundreds of hours of recorded premium content. Watch me build, test, and deploy trading systems in real-time."
+    description: "Access hundreds of hours of recorded live streams."
   },
   {
     icon: "💬",
-    title: "Weekly Q&A & Live Lessons",
-    description: "Get your questions answered directly. Join weekly calls for personalized guidance on coding and trading."
+    title: "Weekly Q&A Sessions",
+    description: "Get your questions answered directly. Join weekly calls for personalized guidance on coding."
   },
   {
-    icon: "💰",
-    title: "Funded Sub-Account",
-    description: "Trade with real money while I monitor your progress. Get personalized feedback to accelerate your growth."
+    icon: "💡",
+    title: "Code Class",
+    description: "Hands-on coding and mindset sessions. Learn by doing and see immediate results."
   },
   {
     icon: "🤖",
-    title: "Free Trading Bot (Instant Access)",
-    description: "Start trading immediately with a proven bot. Earn while you learn the strategies behind the code."
-  }
+    title: "AI First Learning",
+    description: "Leverage AI tools to supercharge your coding. Stay ahead of the curve with cutting-edge technology."
+  },
+  {
+    icon: "📚",
+    title: "Expert Coder",
+    description: "All technical skills you need to be world-class coder."
+  },
+
 ]
 
 const scrollToFeatures = () => {
@@ -185,6 +175,11 @@ const scrollToFeatures = () => {
   gap: 30px;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.pricing-cta {
+  margin-top: 40px;
+  text-align: center;
 }
 
 /* Alternative Section */
@@ -238,7 +233,7 @@ const scrollToFeatures = () => {
   .features-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .pricing-options {
     flex-direction: column;
     align-items: center;
