@@ -7,7 +7,7 @@
       </template>
       <template #subtitle>
         <VideoEmbed
-          src="https://www.youtube.com/embed/bbrYn2wccM0?si=cYpCO09_4hW56lSb"
+          src="https://www.youtube.com/embed/pNTRZVCbP1M?si=kN1aH4SqRyadx15O"
           title="Coder Trader Overview Video"
         />
       </template>
