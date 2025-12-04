@@ -50,7 +50,8 @@
               'Code Class Full Access',
               'Premium Live Stream Archive',
               'Mindset Course',
-              'Expert Coder Full Access'
+              'Expert Coder Full Access',
+              'Phone Smasher Bootcamp'
             ]">
               <template #button>
                 <a :href="skoolLink" class="btn btn-primary" target="_blank">Start Monthly</a>
