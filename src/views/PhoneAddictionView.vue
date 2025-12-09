@@ -6,19 +6,16 @@
       </template>
       <template #subtitle>
         <VideoEmbed
-          src="https://www.youtube.com/embed/pNTRZVCbP1M?si=kN1aH4SqRyadx15O"
+          src="https://www.youtube.com/embed/UW5nFcWUKTQ?si=tDiBeV3vdQyEvzRJ"
           title="Phone Addiction Course Overview"
         />
       </template>
       <template #buttons>
-        <a href="https://www.skool.com/codertrader/about?ref=8fb2c06825bb4b70be660556279e3a9a"
+        <a href="https://www.skool.com/coder-trader/phone-smasher-first-lesson-hope?p=bff26cca"
            target="_blank"
            class="btn btn-primary">
-          Start Your Digital Detox Journey
+          Go to First Lesson
         </a>
-      </template>
-      <template #social-proof>
-        📱 Join thousands who've reclaimed 3+ hours daily from phone addiction
       </template>
     </HeroSection>
 
@@ -56,44 +53,6 @@
             title="Progress Tracking"
             description="Monitor your journey with data-driven insights and celebrate your wins"
           />
-        </div>
-      </div>
-    </section>
-
-    <section class="pricing-section">
-      <div class="container">
-        <h2 class="section-title">Choose Your Path to Freedom</h2>
-        <div class="pricing-grid">
-          <PricingCard
-            title="Monthly"
-            price="$97"
-            period="/month"
-          >
-            <template #button>
-              <a href="https://www.skool.com/codertrader/about?ref=8fb2c06825bb4b70be660556279e3a9a"
-                 target="_blank"
-                 class="btn btn-primary">
-                Get Started Monthly
-              </a>
-            </template>
-          </PricingCard>
-
-          <PricingCard
-            title="Annual"
-            price="$697"
-            period="/year"
-            :featured="true"
-            badge="BEST VALUE"
-            savings="Save 40%!"
-          >
-            <template #button>
-              <a href="https://www.skool.com/codertrader/about?ref=8fb2c06825bb4b70be660556279e3a9a"
-                 target="_blank"
-                 class="btn btn-primary">
-                Get Started Annually
-              </a>
-            </template>
-          </PricingCard>
         </div>
       </div>
     </section>
@@ -153,10 +112,10 @@
         <div class="cta-box">
           <h2>Ready to Take Back Control?</h2>
           <p>Your future self will thank you for starting today</p>
-          <a href="https://www.skool.com/codertrader/about?ref=8fb2c06825bb4b70be660556279e3a9a"
+          <a href="https://www.skool.com/coder-trader/phone-smasher-first-lesson-hope?p=bff26cca"
              target="_blank"
              class="btn btn-primary btn-large">
-            Join the Phone Freedom Course
+            Go to First Lesson
           </a>
         </div>
       </div>
@@ -167,7 +126,6 @@
 <script setup lang="ts">
 import HeroSection from '../components/HeroSection.vue'
 import FeatureCard from '../components/FeatureCard.vue'
-import PricingCard from '../components/PricingCard.vue'
 import VideoEmbed from '../components/VideoEmbed.vue'
 </script>
 
